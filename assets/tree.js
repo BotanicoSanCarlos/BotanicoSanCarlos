@@ -86,7 +86,14 @@ function branch(sx, sy, sdir, dir_range, thickness, slength, segs, level) {
         }
     }
 }
-let paginaCargada = true;
+let paginaCargada = false;
+
+window.addEventListener('hashchange', () => {
+    console.log(`The current URL hash is ${location.hash}`);
+    if (location.hash == "inicio") {
+        paginaCargada = true;
+    }
+});
 
 function draw() {
     if (paginaCargada) {
