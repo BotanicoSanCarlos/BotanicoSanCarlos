@@ -61,7 +61,8 @@
         function iniciarApp(datosUser) {
 
             let ancho = $(window).width() < 720 ? $(window).width() - 10 : $(window).width() / 2;
-            let textoQR = '{"id":"' + datosUser + '"}';
+            // let textoQR = '{"id":"' + datosUser + '"}';
+            let textoQR = datosUser;
             //console.log(textoQR);
             options = {
                 // render method: 'canvas', 'image' or 'div'
