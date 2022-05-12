@@ -1,0 +1,6 @@
+<carousel [isAnimated]="true" [interval]="intervalo" class="centrarItems">
+    <slide *ngFor="let imagen of imagenes; let index=index" class="imagenesPortada">
+        <!--  <div [ngStyle]="{'background-image':'url('+imagen.src+')'}" [class]="'bg-image'"></div> -->
+        <img class="img-fluid" [src]="imagen.src" [alt]="imagen.titulo" style="display: block; width: 100%;">
+    </slide>
+</carousel>

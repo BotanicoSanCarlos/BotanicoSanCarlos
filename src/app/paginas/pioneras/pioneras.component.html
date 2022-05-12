@@ -1,0 +1,14 @@
+<app-encabezado-subpaginas urlImagen="assets/imagenes/pioneras.JPG" titulo="Historia del Jardín"></app-encabezado-subpaginas>
+
+<div class="container my-5">
+    <div class="row centrarItems">
+        <div class="col-xl-6 col-sm-12" *ngIf="tablaGoogleSheets$ | async as datos; else cargando">
+            <ng-component [innerHTML]="datos[0].texto"></ng-component>
+        </div>
+        <ng-template #cargando>
+            <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </ng-template>
+    </div>
+</div>

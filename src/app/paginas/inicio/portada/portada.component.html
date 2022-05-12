@@ -1,0 +1,41 @@
+<div class="contenedor centrarItems header text-center">
+
+    <div style=" position:absolute; height: 100%; z-index: 50; text-shadow: 3px 3px 6 rgba(0, 0, 0, 0.473); color: white; " class="text-center centrarItems " [ngClass]="cargoIframe ? 'slide-out-fwd-center' : ''">
+        <div class="spinner-border text-center " role="status ">
+            <span class="visually-hidden text-center">cargando...</span>
+        </div>
+    </div>
+
+    <div class="headline " [ngClass]="cargoIframe ? 'slide-in-fwd-center' : 'd-none'" style="box-shadow: 15px 25px 35px rgba(0, 0, 0, 0.158) !important; ">
+        <h1 class="heading sombra ">
+            JARDÍN BOTÁNICO SAN CARLOS
+            <small>Asociación Amigos de la Naturaleza</small>
+        </h1>
+    </div>
+
+
+    <iframe id="showcase" style="z-index: 1; position: absolute; height: 100%; width: 100%; pointer-events: auto;
+        " src='https://my.matterport.com/show/?m=EXW1MnPoFqE&mls=1&play=1&qs=0&ts=-1&dh=1&lang=es&nt=0' scrolling="no " scroll="no " (load)="ocultarElementosIframe() " frameBorder="0 " allowFullScreen allow="xr-spatial-tracking "></iframe>
+
+    <div class="text-white-50 botonPortada">
+        <div #dondeEstamos></div>
+        <button class="btn btn-outline-light sombra " [ngClass]="[cargoIframe ? 'slide-in-fwd-center' : 'd-none']" style="border-color: transparent;" (click)="scroll(dondeEstamos) ">
+        <svg xmlns="http://www.w3.org/2000/svg "   width="28" height="28" fill="currentColor " class="bi bi-chevron-double-down pulsate-bck " viewBox="0 0 16 16 ">
+        <path fill-rule="evenodd " d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z "/>
+        <path fill-rule="evenodd " d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z "/>
+      </svg>
+    </button>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- <iframe style="z-index: -1; position: absolute; /* right: -4%; bottom: 8%; */ height: 98vh; width: 100%; /* min-width: 105%; min-height: 92%; */ " src="https://www.youtube-nocookie.com/embed/ejXhDe_zajI?autoplay=1&mute=1&controls=0&loop=1&version=3
+        " frameborder="0 " allow="autoplay; muted; loop; muted; ">
+    </iframe> 
+     <video class="grain " src="assets/videos/JB_SanCarlos_portada_1080.mp4 " style="z-index: -1; position:absolute; right: 0;bottom: 0;min-width: 100%; min-height: 100%; " type="video/mp4 " [autoplay]="true " [muted]="true " [loop]="true " id="myVideo "></video> 
+        <div id="P5JS " style="z-index: -1; position:absolute; right: 0;bottom: 0;min-width: 100%; min-height: 100%; "></div>
+ -->

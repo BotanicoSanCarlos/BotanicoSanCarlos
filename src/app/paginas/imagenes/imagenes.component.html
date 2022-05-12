@@ -1,0 +1,33 @@
+<app-encabezado-subpaginas titulo="Galería de imagenes" urlImagen="assets/imagenes/19-3_El_descanso_del_otoño.jpg"></app-encabezado-subpaginas>
+
+<div class="container centrarItems row my-5 " style="height: 80vh" *ngIf="tablaGoogleSheets$ | async as datos; else cargando">
+
+    <div class="col-sm-12 col-xl-6">
+        <h4>{{datos[1].concurso}} <br> <span class="text-muted">{{datos[1].fecha}}</span></h4>
+    </div>
+    <div class="col-sm-12 col-xl-6">
+        <carousel [isAnimated]="true" [interval]="intervalo">
+            <div *ngFor="let dato of datos">
+                <slide *ngIf="dato.imagen != ''">
+                    <div [ngStyle]="{'background-image':'url('+dato.imagen+')'}" [class]="'bg-image'">
+                        <!--style="display: flex; width: 100%;"> [ngStyle]="{'background-image':'url('+dato.imagen+')'}" -->
+                        <!-- <img [src]="dato.imagen" [alt]="dato.titulo" class="img-fluid"> -->
+                        <div class="carousel-caption d-none d-md-block" style="text-shadow: 1px 1px 6px black; color:white;">
+                            <h4>{{dato.autor}}</h4>
+                            <p>{{dato.descripcion}}</p>
+                        </div>
+                    </div>
+                </slide>
+            </div>
+        </carousel>
+    </div>
+
+</div>
+
+<ng-template #cargando>
+    <div class="container centrarItems text-center " style="height: 80vh;">
+        <div class="spinner-grow" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+</ng-template>

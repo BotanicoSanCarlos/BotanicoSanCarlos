@@ -1,0 +1,56 @@
+<app-encabezado-subpaginas urlImagen="assets/imagenes/qr.jpg" titulo="Descubri que especie es"></app-encabezado-subpaginas>
+
+<div class="container my-5">
+    <div class="row" style="">
+
+        <div class="col-xl-12 col-sm-12 text-center">
+            <button type="button" class="btn btn-primary" data-toggle="button" (click)="activarCamara()" routerLink="/qr" *ngIf="!scannerEnabled">
+           <!--  <span [ngClass]="hayDatos ? 'd-none' : 'd-block'" >Escanear QR</span> -->
+            <span [ngClass]="!hayDatos ? 'd-none' : 'd-block'">Escanear otro QR</span>
+            </button>
+            <div class="container" style="max-width: 60%;">
+                <zxing-scanner #scanner class="scaner" style="margin-bottom: -3px;" (camerasFound)="cameraFound() " (camerasNotFound)="camerasNotFound() " [formats]="formato " [torch]="flashOn " (scanSuccess)="scanSuccessHandler($event) " [enable]="scannerEnabled
+                " *ngIf="scannerEnabled "></zxing-scanner>
+            </div>
+        </div>
+
+        <div class="col-xl-12 col-sm-12 " #tarjetaDatos *ngIf="hayDatos">
+
+            <section class="wrapper centrarItems">
+                <!-- *ngIf="datos | async as dato; else cargando" -->
+                <div class="card " data-effect="zoom">
+                    <figure class="card__image">
+                        <img src="assets/imagenes/bosque_VR.jpg" alt="...">
+                    </figure>
+                    <div class="card__header ">
+                        <figure class="card__profile ">
+                            <img src="assets/imagenes/inicio/botanico-5.png" alt="...">
+                        </figure>
+                    </div>
+                    <div class="card__body ">
+                        <h3 class="card__name mb-4">{{datos.nombreVulgar}}</h3>
+                        <p class="card__job ">{{datos.nombreCientifico}}</p>
+                        <p class="card__bio ">{{datos.descripcion}}</p>
+                    </div>
+                    <div class="card__footer ">
+                        <p class="card__date ">Especie: {{datos.especie}}</p>
+                        <p class="card__date__2"><a style="border-color: transparent!important;" [href]="datos.link" target="_blank" rel="noopener noreferrer">más información...</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <ng-template #cargando>
+                <div class="container centrarItems text-center " style="height: 80vh;">
+                    <div class="spinner-grow" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+
+
+
+
+    </div>
+</div>

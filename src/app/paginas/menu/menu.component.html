@@ -1,0 +1,22 @@
+<div id="wrapper">
+    <div class="overlay" (click)="cerrarMenu()"></div>
+    <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation" #InicioMenu>
+        <ul class="nav sidebar-nav">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <a [routerLink]="['/inicio']" (click)="cerrarMenu()">Menú</a></div>
+            </div>
+            <li><a [routerLink]="['inicio']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Inicio</a></li>
+            <li><a [routerLink]="['pioneras']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Pioneras</a></li>
+            <li><a [routerLink]="['relatos']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Relatos de sus protagonistas</a></li>
+            <li><a [routerLink]="['galeria']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Galería de imagenes</a></li>
+            <li><a [routerLink]="['vr']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Visita Virtual</a></li>
+            <li><a [routerLink]="['qr']" [routerLinkActive]="['active']" (click)="menu(InicioMenu)">Guia QR</a></li>
+        </ul>
+    </nav>
+    <button type="button" class="hamburger animated fadeInLeft slide-in-left " [ngClass]="{'is-open': isClosed, 'is-closed' : !isClosed }" data-toggle="offcanvas" (click)="cerrarMenu()">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
+</div>

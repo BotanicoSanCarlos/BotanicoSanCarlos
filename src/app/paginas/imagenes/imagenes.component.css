@@ -1,0 +1,14 @@
+.bg-image {
+    /*  position: absolute;
+    right: 0;
+    top: 0;*/
+    width: 100%;
+    min-height: 70vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+a:hover {
+    box-shadow: 0px 0px 0px !important;
+}

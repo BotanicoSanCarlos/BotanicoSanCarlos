@@ -1,0 +1,29 @@
+<app-encabezado-subpaginas urlImagen="assets/imagenes/19-3_El_descanso_del_otoño.jpg" titulo="Relatos de sus protagonistas"></app-encabezado-subpaginas>
+<section>
+    <div class="container mt-5 jcard-container" *ngIf="tablaGoogleSheets$ | async as datos; else cargando">
+        <div *ngFor="let dato of datos">
+            <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;" [ngClass]="dato.titulo == '' ? 'd-none': ''">
+                <div class="projcard-innerbox">
+                    <img class="projcard-img" [src]="dato.imagen" [alt]="'No es posible cargar la imagen'" />
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">{{dato.titulo}}</div>
+                        <div class="projcard-subtitle">{{dato.medio}}</div>
+                        <div class="projcard-bar"></div>
+                        <div class="projcard-description">{{dato.descripcion}}</div>
+                        <div class="projcard-tagbox">
+                            <span class="projcard-tag">{{dato.fecha}}</span>
+                        </div>
+                        <div class="botonMas">
+                            <a type="button" class="btn btn-outline-dark" style="--color: #F5AF41;" [href]="dato.link" target="_blank" rel="noopener noreferrer">Ver Más...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #cargando>
+        <div class="spinner-grow" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </ng-template>
+</section>
